@@ -14,34 +14,14 @@ body {
     #b12a5b 100%
   );
 }
-.middle {
-  position: absolute;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-left: 33%;
-}
-.parent {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
 h1 {
   font-size: 4rem;
-  margin: 10rem 0 3rem 0;
+  margin: 7rem 0 3rem 0;
   padding-bottom: rem;
+  font-weight: bold;
 }
-.left {
-  grid-area: 1 / 1 / 2 / 2;
-}
-.right {
-  grid-area: 1 / 2 / 2 / 3;
-}
-.left,
-.right {
+.col {
+  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -53,24 +33,22 @@ h1 {
 }
 #dice {
   width: 50%;
+  cursor: pointer;
 }
 .box1,
 .box2 {
-  border: 1px dashed black;
-  width: 20%;
   background-color: black;
   margin-top: 3rem;
+  width: 80%;
 }
 .score-save1,
 .score-save2 {
   font-size: 5rem;
 }
 h2 {
-  margin-top: 0.5rem;
+  margin-top: 1rem;
 }
 .new-game {
-  display: flex;
-  flex-direction: row;
   margin: 4rem 0 6rem 0;
 }
 .roll {
@@ -80,11 +58,6 @@ h2 {
 .hold,
 .new-game {
   font-size: 2rem;
-  cursor: pointer;
-}
-svg {
-  width: 20px;
-  padding-right: 10px;
   cursor: pointer;
 }
 .current1,
