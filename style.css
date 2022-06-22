@@ -20,7 +20,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 32%;
+  margin-left: 33%;
 }
 .parent {
   display: grid;
@@ -30,12 +30,12 @@ body {
   grid-row-gap: 0px;
 }
 h1 {
-  font-size: 6rem;
-  margin-top: 6rem;
+  font-size: 4rem;
+  margin: 10rem 0 4rem 0;
+  padding-bottom: rem;
 }
 .left {
   grid-area: 1 / 1 / 2 / 2;
-  border-right: 2px dotted #ff6550;
 }
 .right {
   grid-area: 1 / 2 / 2 / 3;
@@ -49,7 +49,7 @@ h1 {
 }
 .score1,
 .score2 {
-  font-size: 13rem;
+  font-size: 8rem;
 }
 #dice {
   width: 50%;
@@ -58,6 +58,8 @@ h1 {
 .box2 {
   border: 1px dashed black;
   width: 20%;
+  background-color: black;
+  margin-top: 9rem;
 }
 .score-save1,
 .score-save2 {
@@ -67,13 +69,29 @@ h2 {
   margin-top: 0.5rem;
 }
 .new-game {
-  margin: 4rem 0 8rem 0;
+  display: flex;
+  flex-direction: row;
+  margin: 4rem 0 10rem 0;
 }
 .roll {
-  margin: 4rem 0 2rem 0;
+  margin: 10rem 0 2rem 0;
 }
 .roll,
 .hold,
 .new-game {
   font-size: 2rem;
+  cursor: pointer;
+}
+svg {
+  width: 20px;
+  padding-right: 10px;
+  cursor: pointer;
+}
+.current1,
+.score-save1 {
+  color: #f99185;
+}
+.current2,
+.score-save2 {
+  color: #cf556c;
 }
