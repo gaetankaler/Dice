@@ -31,7 +31,7 @@ body {
 }
 h1 {
   font-size: 4rem;
-  margin: 10rem 0 4rem 0;
+  margin: 10rem 0 3rem 0;
   padding-bottom: rem;
 }
 .left {
@@ -59,7 +59,7 @@ h1 {
   border: 1px dashed black;
   width: 20%;
   background-color: black;
-  margin-top: 9rem;
+  margin-top: 3rem;
 }
 .score-save1,
 .score-save2 {
@@ -71,10 +71,10 @@ h2 {
 .new-game {
   display: flex;
   flex-direction: row;
-  margin: 4rem 0 10rem 0;
+  margin: 4rem 0 6rem 0;
 }
 .roll {
-  margin: 10rem 0 2rem 0;
+  margin: 6rem 0 2rem 0;
 }
 .roll,
 .hold,
