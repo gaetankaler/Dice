@@ -1,33 +1,79 @@
-let player1 = "Player 1"
-let player2 = "Player 2"
-let numberDice = Math.floor(Math.random() * 6 + 1);
+let numberDice = Math.floor(Math.random() * 6) + 1;
+console.log(numberDice);
 let newGame = document.querySelector(".newGame");
 let roll = document.querySelector(".roll");
 let hold = document.querySelector(".hold");
 let dice = document.querySelector("#dice");
-let round = ""; //score temporaire
-let global = "";  //score global
 
+let global, round, activePlayer, gamePlay;
+start();
 
-newGame.addEventListener("click", (e) => {
-  if (confirm("Start a new game ?")) {
-    //reset la game 
+document.querySelector(".roll").addEventListener("click", () => {
+  if (gamePlay) {
+    numberDice;
+    dice.style.display = "block";
+    dice.src = `./asset/img/dice-${numberDice}.png`;
+
+    if (numberDice !== 1) {
+      round += numberDice;
+      document.querySelector(`.scoreSave-${activePlayer}`).textContent = round;
+    } else {
+      nextPlayer();
+    }
   }
 });
 
-roll.addEventListener("click", (e) => {
-  numberDice;
-  if (numberDice === 1)
-  //lance numberDice si numberDice = 1 alors perdu
-  //sinon rajoute le score du dé à "score1" ou "score2" suivant le joueur qui joue
+document.querySelector(".hold").addEventListener("click", () => {
+  if (gamePlay) {
+    global[activePlayer] += round;
+    document.querySelector(`.score-${activePlayer}`).textContent =
+      global[activePlayer];
+
+    if (global[activePlayer] >= 100) {
+      document.querySelector(`.name-${activePlayer}`).textContent = "Winner!";
+      document.querySelector("#dice").style.display = "none";
+      document.querySelector(`.player-${activePlayer}`).classList.add("winner");
+      document
+        .querySelector(`.player-${activePlayer}`)
+        .classList.remove("active");
+      gamePlay = false;
+    } else {
+      nextPlayer();
+    }
+  }
 });
 
-hold.addEventListener("click", (e) => {
-  //met le score actuel dans "current1" ou "current2" suivant le joueur qui joue
-});
+function nextPlayer() {
+  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
+  round = 0;
+  document.querySelector(".scoreSave-0").textContent = "0";
+  document.querySelector(".scoreSave-1").textContent = "0";
 
-dice.addEventListener("click", (e) => {
-  // === a roll
-});
+  document.querySelector(".player-0").classList.toggle("active");
+  document.querySelector(".player-1").classList.toggle("active");
+}
 
-//definir quel joueur joue
+document.querySelector("#dice").style.display = "none";
+
+document.querySelector(".newGame").addEventListener("click", start);
+
+function start() {
+  global = [0, 0];
+  round = 0;
+  activePlayer = 0;
+  gamePlay = true;
+
+  document.querySelector("#dice").style.display = "none";
+
+  document.querySelector(".score-0").textContent = "0";
+  document.querySelector(".score-1").textContent = "0";
+  document.querySelector(".scoreSave-0").textContent = "0";
+  document.querySelector(".scoreSave-1").textContent = "0";
+  document.querySelector(".name-0").textContent = "Player 1";
+  document.querySelector(".name-1").textContent = "Player 2";
+  document.querySelector(".player-0").classList.remove("winner");
+  document.querySelector(".player-1").classList.remove("winner");
+  document.querySelector(".player-0").classList.remove("active");
+  document.querySelector(".player-1").classList.remove("active");
+  document.querySelector(".player-0").classList.add("active");
+}

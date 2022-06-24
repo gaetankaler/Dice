@@ -3,6 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  user-select: none;
 }
 body {
   background-color: black;
@@ -38,16 +39,16 @@ h1 {
   flex-direction: column;
   align-items: center;
 }
-.score1,
-.score2 {
+.score-0,
+.score-1 {
   font-size: 6rem;
 }
 #dice {
   width: 40%;
   cursor: pointer;
 }
-.box1,
-.box2 {
+.box-0,
+.box-1 {
   background-color: black;
   margin: 1rem;
   width: 60%;
@@ -64,13 +65,13 @@ h1 {
   font-size: 1rem;
   cursor: pointer;
 }
-.current1,
-.current2 {
+.current-0,
+.current-1 {
   color: #f99185;
   font-size: 1rem;
 }
-.scoreSave1,
-.scoreSave2 {
+.scoreSave-0,
+.scoreSave-1 {
   color: #cf556c;
   font-size: 1.5rem;
 }
@@ -104,8 +105,8 @@ h1 {
   h1 {
     font-size: 1.6rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.9rem;
     margin-top: 0.2rem;
   }
@@ -114,8 +115,8 @@ h1 {
   h1 {
     font-size: 1.5rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.8rem;
     margin-top: 0.2rem;
   }
@@ -127,8 +128,8 @@ h1 {
   .newGame {
     font-size: 0.9rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.7rem;
     margin-top: 0.2rem;
   }
@@ -144,8 +145,8 @@ h1 {
   .newGame {
     font-size: 0.8rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.6rem;
     margin-top: 0.2rem;
   }
@@ -161,8 +162,8 @@ h1 {
   .newGame {
     font-size: 0.8rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.6rem;
     margin-top: 0.2rem;
   }
@@ -178,8 +179,8 @@ h1 {
   .newGame {
     font-size: 0.7rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.5rem;
     margin-top: 0.2rem;
   }
@@ -195,8 +196,8 @@ h1 {
   .newGame {
     font-size: 0.7rem;
   }
-  .current1,
-  .current2 {
+  .current-0,
+  .current-1 {
     font-size: 0.5rem;
     margin-top: 0.2rem;
   }
