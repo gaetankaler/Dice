@@ -1,9 +1,21 @@
 * {
-  font-family: "Square Peg", cursive;
+  font-family: "Lato", sans-serif;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 body {
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+.container {
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-image: linear-gradient(
     to right,
     #ff8177 0%,
@@ -15,13 +27,12 @@ body {
   );
 }
 h1 {
-  font-size: 4rem;
-  margin: 7rem 0 3rem 0;
+  font-size: 2rem;
+  margin: 4rem 0 2rem 0;
   padding-bottom: rem;
   font-weight: bold;
 }
 .col {
-  height: 100vh;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -29,42 +40,177 @@ h1 {
 }
 .score1,
 .score2 {
-  font-size: 8rem;
+  font-size: 6rem;
 }
 #dice {
-  width: 50%;
+  width: 40%;
   cursor: pointer;
 }
 .box1,
 .box2 {
   background-color: black;
-  margin-top: 3rem;
-  width: 80%;
+  margin: 1rem;
+  width: 60%;
 }
-.score-save1,
-.score-save2 {
-  font-size: 5rem;
-}
-h2 {
-  margin-top: 1rem;
-}
-.new-game {
-  margin: 4rem 0 6rem 0;
+.newGame {
+  margin: 2rem 0 6rem 0;
 }
 .roll {
-  margin: 6rem 0 2rem 0;
+  margin: 4rem 0 1rem 0;
 }
 .roll,
 .hold,
-.new-game {
-  font-size: 2rem;
+.newGame {
+  font-size: 1rem;
   cursor: pointer;
 }
 .current1,
-.score-save1 {
+.current2 {
   color: #f99185;
+  font-size: 1rem;
 }
-.current2,
-.score-save2 {
+.scoreSave1,
+.scoreSave2 {
   color: #cf556c;
+  font-size: 1.5rem;
+}
+@media screen and (max-width: 767.9px) {
+  .roll {
+    margin-top: 9rem;
+  }
+  #dice {
+    width: 60%;
+    margin-top: 1rem;
+  }
+}
+
+@media screen and (max-width: 532px) {
+  h1 {
+    font-size: 1.9rem;
+  }
+}
+
+@media screen and (max-width: 508px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+}
+@media screen and (max-width: 487px) {
+  h1 {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 464px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+  }
+}
+@media screen and (max-width: 440px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.8rem;
+    margin-top: 0.2rem;
+  }
+}
+@media screen and (max-width: 416px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+  .newGame {
+    font-size: 0.9rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.7rem;
+    margin-top: 0.2rem;
+  }
+  .roll,
+  .hold {
+    font-size: 0.9rem;
+  }
+}
+@media screen and (max-width: 395px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  .newGame {
+    font-size: 0.8rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+  }
+  .roll,
+  .hold {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  h1 {
+    font-size: 1.3rem;
+  }
+  .newGame {
+    font-size: 0.8rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.6rem;
+    margin-top: 0.2rem;
+  }
+  .roll,
+  .hold {
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 344px) {
+  h1 {
+    font-size: 1.1rem;
+  }
+  .newGame {
+    font-size: 0.7rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.5rem;
+    margin-top: 0.2rem;
+  }
+  .roll,
+  .hold {
+    font-size: 0.7rem;
+  }
+}
+@media screen and (max-width: 320px) {
+  h1 {
+    font-size: 1rem;
+  }
+  .newGame {
+    font-size: 0.7rem;
+  }
+  .current1,
+  .current2 {
+    font-size: 0.5rem;
+    margin-top: 0.2rem;
+  }
+  .roll,
+  .hold {
+    font-size: 0.7rem;
+  }
+  #dice {
+    width: 80%;
+    margin-top: 0.7rem;
+  }
+}
+@media screen and (max-width: 991px) {
+  .roll {
+    margin-top: 5rem;
+  }
 }
