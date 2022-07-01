@@ -1,16 +1,17 @@
-let numberDice = Math.floor(Math.random() * 6) + 1;
-console.log(numberDice);
 let newGame = document.querySelector(".newGame");
 let roll = document.querySelector(".roll");
 let hold = document.querySelector(".hold");
 let dice = document.querySelector("#dice");
+let scorePlayer0 = document.querySelector(".scoreSave-0");
+let scorePlayer1 = document.querySelector(".scoreSave-1");
 
 let global, round, activePlayer, gamePlay;
 start();
 
 document.querySelector(".roll").addEventListener("click", () => {
   if (gamePlay) {
-    numberDice;
+    let numberDice = Math.floor(Math.random() * 6) + 1;
+
     dice.style.display = "block";
     dice.src = `./asset/img/dice-${numberDice}.png`;
 
@@ -69,11 +70,20 @@ function start() {
   document.querySelector(".score-1").textContent = "0";
   document.querySelector(".scoreSave-0").textContent = "0";
   document.querySelector(".scoreSave-1").textContent = "0";
-  document.querySelector(".name-0").textContent = "Player 1";
-  document.querySelector(".name-1").textContent = "Player 2";
+  document.querySelector(".name-0").textContent = "PLAYER 1";
+  document.querySelector(".name-1").textContent = "PLAYER 2";
   document.querySelector(".player-0").classList.remove("winner");
   document.querySelector(".player-1").classList.remove("winner");
   document.querySelector(".player-0").classList.remove("active");
   document.querySelector(".player-1").classList.remove("active");
   document.querySelector(".player-0").classList.add("active");
+}
+function color() {
+  if (scoreSave - 0 > scoreSave - 1) {
+    document.querySelector(".name-0").style.color = "green";
+    document.querySelector(".name-1").style.color = "red";
+  } else {
+    document.querySelector(".name-0").style.color = "red";
+    document.querySelector(".name-1").style.color = "green";
+  }
 }

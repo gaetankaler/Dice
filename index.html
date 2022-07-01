@@ -29,33 +29,40 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col player-0 active">
-          <h1 class="name-0">PLAYER 1</h1>
-          <p class="score-0">0</p>
+      <div class="left">
+        <span class="win">100 points for win</span>
+        <div class="name player-0 active">
+          <div class="name-0">PLAYER 1</div>
+          <div class="score-0">421</div>
           <div class="box-0">
-            <p class="current-0">CURRENT</p>
-            <p class="scoreSave-0">0</p>
+            <span class="current-0">CURRENT</span>
+            <span class="scoreSave-0">02</span>
           </div>
         </div>
-        <div class="col">
-          <div class="newGame">
-            <i class="fa-solid fa-circle-plus"> NEW GAME</i>
-          </div>
-          <img id="dice" src="./asset/img/Dice-5.png" alt="dice" />
-          <div class="roll">
-            <i class="fa-solid fa-circle-notch"> ROLL DICE</i>
-          </div>
-          <div class="hold">
-            <i class="fa-solid fa-file-circle-plus"> HOLD</i>
-          </div>
+      </div>
+      <div class="mid">
+        <div class="newGame">
+          <i class="fa-solid fa-circle-plus"> NEW GAME</i>
         </div>
-        <div class="col player-1">
-          <h1 class="name-1">PLAYER 2</h1>
-          <p class="score-1">0</p>
+        <div class="dice">
+          <img id="dice" src="./asset/img/Dice-6.png" alt="dice" />
+        </div>
+        <div class="rollHold">
+          <span class="roll"
+            ><i class="fa-solid fa-circle-notch"> ROLL DICE</i></span
+          >
+          <span class="hold"
+            ><i class="fa-solid fa-file-circle-plus"> HOLD</i></span
+          >
+        </div>
+      </div>
+      <div class="right">
+        <div class="name player-1">
+          <div class="name-1">PLAYER 2</div>
+          <div class="score-1">24</div>
           <div class="box-1">
-            <p class="current-1">CURRENT</p>
-            <p class="scoreSave-1">0</p>
+            <span class="current-1">CURRENT</span>
+            <span class="scoreSave-1">069</span>
           </div>
         </div>
       </div>
