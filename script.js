@@ -1,89 +1,111 @@
-let newGame = document.querySelector(".newGame");
-let roll = document.querySelector(".roll");
-let hold = document.querySelector(".hold");
-let dice = document.querySelector("#dice");
-let scorePlayer0 = document.querySelector(".scoreSave-0");
-let scorePlayer1 = document.querySelector(".scoreSave-1");
+// Manque : Animation, Victoire
+const dice = document.querySelector("#dice");
+const roll = document.querySelector(".roll");
+const hold = document.querySelector(".hold");
+const current0 = document.querySelector(".scoreSave-0");
+const current1 = document.querySelector(".scoreSave-1");
+const score0 = document.querySelector(".score-0");
+const score1 = document.querySelector(".score-1");
+const newGame = document.querySelector(".newGame");
+const panel0 = document.querySelector(".player-0");
+const panel1 = document.querySelector(".player-1");
 
-let global, round, activePlayer, gamePlay;
-start();
+let counter = 0;
+let s0 = 0;
+let s1 = 0;
 
-document.querySelector(".roll").addEventListener("click", () => {
-  if (gamePlay) {
-    let numberDice = Math.floor(Math.random() * 6) + 1;
+dice.style.display = "none";
 
-    dice.style.display = "block";
-    dice.src = `./asset/img/dice-${numberDice}.png`;
-
-    if (numberDice !== 1) {
-      round += numberDice;
-      document.querySelector(`.scoreSave-${activePlayer}`).textContent = round;
+roll.addEventListener("click", () => {
+  let rndNum = rnd();
+  counter += rndNum;
+  dice.classList.toggle("animation");
+  dice.style.display = "block";
+  setDiceImgSrc(rndNum);
+  if (rndNum !== 1) {
+    if (panel0.classList.contains("active")) {
+      current0.textContent = counter;
     } else {
-      nextPlayer();
+      current1.textContent = counter;
     }
-  }
-});
-
-document.querySelector(".hold").addEventListener("click", () => {
-  if (gamePlay) {
-    global[activePlayer] += round;
-    document.querySelector(`.score-${activePlayer}`).textContent =
-      global[activePlayer];
-
-    if (global[activePlayer] >= 100) {
-      document.querySelector(`.name-${activePlayer}`).textContent = "Winner!";
-      document.querySelector("#dice").style.display = "none";
-      document.querySelector(`.player-${activePlayer}`).classList.add("winner");
-      document
-        .querySelector(`.player-${activePlayer}`)
-        .classList.remove("active");
-      gamePlay = false;
-    } else {
-      nextPlayer();
-    }
-  }
-});
-
-function nextPlayer() {
-  activePlayer === 0 ? (activePlayer = 1) : (activePlayer = 0);
-  round = 0;
-  document.querySelector(".scoreSave-0").textContent = "0";
-  document.querySelector(".scoreSave-1").textContent = "0";
-
-  document.querySelector(".player-0").classList.toggle("active");
-  document.querySelector(".player-1").classList.toggle("active");
-}
-
-document.querySelector("#dice").style.display = "none";
-
-document.querySelector(".newGame").addEventListener("click", start);
-
-function start() {
-  global = [0, 0];
-  round = 0;
-  activePlayer = 0;
-  gamePlay = true;
-
-  document.querySelector("#dice").style.display = "none";
-
-  document.querySelector(".score-0").textContent = "0";
-  document.querySelector(".score-1").textContent = "0";
-  document.querySelector(".scoreSave-0").textContent = "0";
-  document.querySelector(".scoreSave-1").textContent = "0";
-  document.querySelector(".name-0").textContent = "PLAYER 1";
-  document.querySelector(".name-1").textContent = "PLAYER 2";
-  document.querySelector(".player-0").classList.remove("winner");
-  document.querySelector(".player-1").classList.remove("winner");
-  document.querySelector(".player-0").classList.remove("active");
-  document.querySelector(".player-1").classList.remove("active");
-  document.querySelector(".player-0").classList.add("active");
-}
-function color() {
-  if (scoreSave - 0 > scoreSave - 1) {
-    document.querySelector(".name-0").style.color = "green";
-    document.querySelector(".name-1").style.color = "red";
   } else {
-    document.querySelector(".name-0").style.color = "red";
-    document.querySelector(".name-1").style.color = "green";
+    counter = 0;
+    current0.textContent = 0;
+    current1.textContent = 0;
+    panel0.classList.toggle("active");
+    panel1.classList.toggle("active");
+  }
+});
+dice.addEventListener("click", () => {
+  let rndNum = rnd();
+  dice.classList.toggle("animation");
+  counter += rndNum;
+  dice.style.display = "block";
+  setDiceImgSrc(rndNum);
+  if (rndNum !== 1) {
+    if (panel0.classList.contains("active")) {
+      current0.textContent = counter;
+    } else {
+      current1.textContent = counter;
+    }
+  } else {
+    counter = 0;
+    current0.textContent = 0;
+    current1.textContent = 0;
+    panel0.classList.toggle("active");
+    panel1.classList.toggle("active");
+  }
+});
+
+hold.addEventListener("click", () => {
+  if (panel0.classList.contains("active")) {
+    s0 += counter;
+    score0.textContent = s0;
+    current0.textContent = 0;
+    if (s0 >= 100) {
+      alert("Player 1 Wins!");
+      resetGame();
+      return;
+    }
+  } else {
+    s1 += counter;
+    score1.textContent = s1;
+    current1.textContent = 0;
+    if (s1 >= 100) {
+      alert("Player 2 Wins!");
+      resetGame();
+      return;
+    }
+  }
+  counter = 0;
+  panel0.classList.toggle("active");
+  panel1.classList.toggle("active");
+});
+
+newGame.addEventListener("click", () => {
+  resetGame();
+});
+
+function setDiceImgSrc(num) {
+  let rndice = `./asset/img/dice-${num}.png`;
+  dice.setAttribute("src", rndice);
+}
+
+function rnd() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+function resetGame() {
+  dice.style.display = "none";
+  current0.textContent = 0;
+  current1.textContent = 0;
+  score0.textContent = 0;
+  score1.textContent = 0;
+  s0 = 0;
+  s1 = 0;
+  counter = 0;
+  if (!panel0.classList.contains("active")) {
+    panel0.classList.toggle("active");
+    panel1.classList.toggle("active");
   }
 }
