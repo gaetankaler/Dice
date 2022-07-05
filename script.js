@@ -1,4 +1,3 @@
-// Animation
 const dice = document.querySelector("#dice");
 const roll = document.querySelector(".roll");
 const hold = document.querySelector(".hold");
@@ -21,7 +20,6 @@ dice.style.display = "none";
 roll.addEventListener("click", () => {
   let roundNum = round();
   counter += roundNum;
-  dice.classList.toggle("animation");
   dice.style.display = "block";
   setDiceImgSrc(roundNum);
   if (roundNum !== 1) {
@@ -40,7 +38,6 @@ roll.addEventListener("click", () => {
 });
 dice.addEventListener("click", () => {
   let roundNum = round();
-  dice.classList.toggle("animation");
   counter += roundNum;
   dice.style.display = "block";
   setDiceImgSrc(roundNum);
@@ -100,6 +97,18 @@ function setDiceImgSrc(num) {
 }
 
 function round() {
+  dice.animate(
+    [
+      { transform: "rotate(20deg)" },
+      { transform: "rotate(-20deg)" },
+      { transform: "rotate(20deg)" },
+      { transform: "rotate(-20deg)" },
+      { transform: "rotate(20deg)" },
+    ],
+    {
+      duration: 500,
+    }
+  );
   return Math.floor(Math.random() * 6) + 1;
 }
 
