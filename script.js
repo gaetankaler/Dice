@@ -1,4 +1,4 @@
-// Manque : Animation, Victoire
+// Animation
 const dice = document.querySelector("#dice");
 const roll = document.querySelector(".roll");
 const hold = document.querySelector(".hold");
@@ -9,20 +9,22 @@ const score1 = document.querySelector(".score-1");
 const newGame = document.querySelector(".newGame");
 const panel0 = document.querySelector(".player-0");
 const panel1 = document.querySelector(".player-1");
+const name0 = document.querySelector(".name-0");
+const name1 = document.querySelector(".name-1");
 
 let counter = 0;
-let s0 = 0;
-let s1 = 0;
+let scorePlayer0 = 0;
+let scorePlayer1 = 0;
 
 dice.style.display = "none";
 
 roll.addEventListener("click", () => {
-  let rndNum = rnd();
-  counter += rndNum;
+  let roundNum = round();
+  counter += roundNum;
   dice.classList.toggle("animation");
   dice.style.display = "block";
-  setDiceImgSrc(rndNum);
-  if (rndNum !== 1) {
+  setDiceImgSrc(roundNum);
+  if (roundNum !== 1) {
     if (panel0.classList.contains("active")) {
       current0.textContent = counter;
     } else {
@@ -37,12 +39,12 @@ roll.addEventListener("click", () => {
   }
 });
 dice.addEventListener("click", () => {
-  let rndNum = rnd();
+  let roundNum = round();
   dice.classList.toggle("animation");
-  counter += rndNum;
+  counter += roundNum;
   dice.style.display = "block";
-  setDiceImgSrc(rndNum);
-  if (rndNum !== 1) {
+  setDiceImgSrc(roundNum);
+  if (roundNum !== 1) {
     if (panel0.classList.contains("active")) {
       current0.textContent = counter;
     } else {
@@ -59,21 +61,27 @@ dice.addEventListener("click", () => {
 
 hold.addEventListener("click", () => {
   if (panel0.classList.contains("active")) {
-    s0 += counter;
-    score0.textContent = s0;
+    scorePlayer0 += counter;
+    score0.textContent = scorePlayer0;
     current0.textContent = 0;
-    if (s0 >= 100) {
-      alert("Player 1 Wins!");
-      resetGame();
+    if (scorePlayer0 >= 100) {
+      name0.textContent = "Winner !";
+      name1.textContent = "Looser !";
+      roll.style.visibility = "hidden";
+      dice.style.visibility = "hidden";
+      hold.style.visibility = "hidden";
       return;
     }
   } else {
-    s1 += counter;
-    score1.textContent = s1;
+    scorePlayer1 += counter;
+    score1.textContent = scorePlayer1;
     current1.textContent = 0;
-    if (s1 >= 100) {
-      alert("Player 2 Wins!");
-      resetGame();
+    if (scorePlayer1 >= 100) {
+      name1.textContent = "Winner !";
+      name0.textContent = "Looser !";
+      roll.style.visibility = "hidden";
+      dice.style.visibility = "hidden";
+      hold.style.visibility = "hidden";
       return;
     }
   }
@@ -87,11 +95,11 @@ newGame.addEventListener("click", () => {
 });
 
 function setDiceImgSrc(num) {
-  let rndice = `./asset/img/dice-${num}.png`;
-  dice.setAttribute("src", rndice);
+  let roundDice = `./asset/img/dice-${num}.png`;
+  dice.setAttribute("src", roundDice);
 }
 
-function rnd() {
+function round() {
   return Math.floor(Math.random() * 6) + 1;
 }
 
@@ -101,8 +109,13 @@ function resetGame() {
   current1.textContent = 0;
   score0.textContent = 0;
   score1.textContent = 0;
-  s0 = 0;
-  s1 = 0;
+  name0.textContent = "PLAYER 1";
+  name1.textContent = "PLAYER 2";
+  roll.style.visibility = "visible";
+  dice.style.visibility = "visible";
+  hold.style.visibility = "visible";
+  scorePlayer0 = 0;
+  scorePlayer1 = 0;
   counter = 0;
   if (!panel0.classList.contains("active")) {
     panel0.classList.toggle("active");

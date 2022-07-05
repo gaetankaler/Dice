@@ -112,17 +112,26 @@ div.name.player-1 {
 }
 
 img.animation {
-  animation: 0.2s ease infinite alternate shake;
+  animation: 0.5s ease alternate shake;
 }
 @keyframes shake {
   0% {
-    transform: rotate(8deg);
+    transform: rotateY(36deg);
   }
-  50% {
-    transform: rotate(-8deg);
+  20% {
+    transform: rotateX(108deg);
+  }
+  40% {
+    transform: rotateY(180deg);
+  }
+  60% {
+    transform: rotateX(252deg);
+  }
+  80% {
+    transform: rotateY(324deg);
   }
   100% {
-    transform: rotate(8deg);
+    transform: rotateX(360deg);
   }
 }
 @media screen and (max-width: 1440px) {
